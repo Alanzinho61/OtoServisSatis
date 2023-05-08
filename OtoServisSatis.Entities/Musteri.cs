@@ -28,6 +28,6 @@ namespace OtoServisSatis.Entities
         [StringLength(15)]
         public string? Telefon { get; set; }
         public string? Notlar { get; set; }
-        public virtual Arac Arac { get; set; }
+        public virtual Arac? Arac { get; set; }
     }
 }

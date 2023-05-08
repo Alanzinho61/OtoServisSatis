@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace OtoServisSatis.Entities
 {
-    public class Arac:IEntity
+    public class Arac : IEntity
     {
 
         public int Id { get; set; }
-        [StringLength(50)]
         [Display(Name = "Marka Adı"), Required(ErrorMessage = "{0} Boş Bırakılamaz.")]
         public int MarkaId { get; set; }
         [StringLength(50),Required(ErrorMessage = "{0} Boş Bırakılamaz.")]
-        public int Renk { get; set; }
+        public string Renk { get; set; }
         [Display(Name = "Fiyatı")]
         public decimal Fiyati { get; set; }
         [StringLength(50), Required(ErrorMessage = "{0} Boş Bırakılamaz.")]
@@ -26,10 +25,9 @@ namespace OtoServisSatis.Entities
         [Display(Name = "Model Yılı")]
         public int ModelYili { get; set;}
         [Display(Name = "Satışta Mı?")]
-
         public bool SatistaMi { get; set; }
         [Required(ErrorMessage = "{0} Boş Bırakılamaz.")]
         public string Notlar { get; set; }
-        public virtual Marka Marka { get; set; }
+        public virtual Marka? Marka { get; set; }
     }
 }

@@ -62,19 +62,24 @@ namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
         }
 
         // GET: KullaniciController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditAsync(int id)
         {
-            return View();
+            var model = await _service.FinAsync(id);
+            ViewBag.RolId = new SelectList(await _serviceRol.GetAllAsync(), "Id", "Adi");
+            
+            return View(model);
         }
 
         // POST: KullaniciController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAsync(int id, Kullanici kullanici)
         {
             try
             {
-                return RedirectToAction(nameof(IndexAsync));
+                _service.Update(kullanici);
+                await _service.SaveAsync();
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -83,24 +88,33 @@ namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
         }
 
         // GET: KullaniciController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            var model = await _service.FinAsync (id);
+            return View(model);
         }
 
         // POST: KullaniciController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Kullanici kullanici)
         {
             try
             {
-                return RedirectToAction(nameof(IndexAsync));
+                _service.Delete(kullanici);
+                _service.Save();
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+        }
+        public ActionResult deneme() 
+        {
+            ViewBag.Message = "ddffsffsd";
+            return View();
+        
         }
     }
 }

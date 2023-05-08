@@ -1,0 +1,86 @@
+﻿@model OtoServisSatis.Entities.Servis
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Servis</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ServiseGelisTarii" class="control-label"></label>
+                <input asp-for="ServiseGelisTarii" class="form-control" />
+                <span asp-validation-for="ServiseGelisTarii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AracSorunu" class="control-label"></label>
+                <input asp-for="AracSorunu" class="form-control" />
+                <span asp-validation-for="AracSorunu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServisUcreti" class="control-label"></label>
+                <input asp-for="ServisUcreti" class="form-control" />
+                <span asp-validation-for="ServisUcreti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServistenCikisTarii" class="control-label"></label>
+                <input asp-for="ServistenCikisTarii" class="form-control" />
+                <span asp-validation-for="ServistenCikisTarii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YapilanIslemler" class="control-label"></label>
+                <input asp-for="YapilanIslemler" class="form-control" />
+                <span asp-validation-for="YapilanIslemler" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="GarantiKapasamaindaMi" /> @Html.DisplayNameFor(model => model.GarantiKapasamaindaMi)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AracPlaka" class="control-label"></label>
+                <input asp-for="AracPlaka" class="form-control" />
+                <span asp-validation-for="AracPlaka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AracMarka" class="control-label"></label>
+                <input asp-for="AracMarka" class="form-control" />
+                <span asp-validation-for="AracMarka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KasaTipi" class="control-label"></label>
+                <input asp-for="KasaTipi" class="form-control" />
+                <span asp-validation-for="KasaTipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaseTipi" class="control-label"></label>
+                <input asp-for="SaseTipi" class="form-control" />
+                <span asp-validation-for="SaseTipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notlar" class="control-label"></label>
+                <input asp-for="Notlar" class="form-control" />
+                <span asp-validation-for="Notlar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

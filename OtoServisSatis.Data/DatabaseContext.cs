@@ -48,6 +48,19 @@ namespace OtoServisSatis.Data
                 Telefon="0537"
 
             }) ;
+            modelBuilder.Entity<Arac>().HasData(new Arac
+            {
+                Id = 1,
+                Fiyati = 100,
+                MarkaId = 1,
+                Renk = "Kirmizi",
+                Modeli = "focus",
+                KasaTipi = "Sedan",
+                SatistaMi = true,
+                ModelYili = 1999,
+                Notlar = "yok"
+
+            });
             base.OnModelCreating(modelBuilder);
         }
     }

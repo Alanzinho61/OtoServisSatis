@@ -32,7 +32,7 @@ namespace OtoServisSatis.Entities
         [StringLength(50)]
         [Display(Name = "Şase Tipi")]
         public string? SaseTipi { get; set; }
-        public string Notlar { get; set; }
+        public string? Notlar { get; set; }
 
 
     }
