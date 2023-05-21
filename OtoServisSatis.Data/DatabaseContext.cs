@@ -10,6 +10,8 @@ namespace OtoServisSatis.Data
 {
     public class DatabaseContext:DbContext
     {
+        //veri tabanindaki  tablolar burada olusturuluyor. Dbcontext sinifina ait Dbset nesnesi ile Arac sinifimiz cagiriliyor. Yanindaki Araclar kismi ise 
+        //veri tabanindaki adini temsil eder
         public DbSet<Arac> Araclar { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<Marka> Markalar { get; set; }
@@ -17,12 +19,15 @@ namespace OtoServisSatis.Data
         public DbSet<Rol> Roller { get; set; }
         public DbSet<Satis> Satislar{ get; set; }
         public DbSet<Servis> Servisler { get; set; }
+
+        //sql i burada tanimladik gerekli kutuphaneleri kurduk ve projeye db nin yolunu vererek dahil ettik.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"server=(LocalDB)\MSSQLLocalDB; database=OtoServisSatis; integrated security=True; MultipleActiveResultSets=True;") ;
 
             base.OnConfiguring(optionsBuilder);
         }
+        //onModelCreating modulu Dbcontext uzerinden turetilmistir bu metdo sayesinde Fluent api veya 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //FluentApi

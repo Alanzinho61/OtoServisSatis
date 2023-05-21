@@ -10,14 +10,16 @@ namespace OtoServisSatis.Data.Abstract
 {
     public interface IRepository<T> where T : class // IEntity, new()
     {
+        //buradaki metotdlar linq.Expressions dan geldi Oraya ait metodlari kullandik.
         List<T> GetAll();
-        List<T> GetAll(Expression<Func<T,bool>>expression);
+        List<T> GetAll(Expression<Func<T, bool>> expression);
         T Get(Expression<Func<T, bool>> expression);
         T Find(int id);
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
         int Save();
+        
         //Asenkron metodlar
         Task<T> FinAsync(int id);
         Task<T> GetAsync(Expression<Func<T, bool>> expression);
